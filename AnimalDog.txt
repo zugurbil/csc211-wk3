@@ -1,0 +1,73 @@
+// Base class
+class Animal {
+    // Properties of Animal
+    String name;
+    int age;
+
+    //  default Constructor of Animal
+    public Animal() {
+        this.name = "Noname";
+        this.age = 0;
+    }
+    // Constructor of Animal
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display animal's info
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+
+    // Method to make a sound (can be overridden)
+    public void sound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+// Derived class (Dog) that inherits from Animal
+class Dog extends Animal {
+
+    // Constructor for Dog
+    public Dog(String name, int age) {
+        super(name, age); // Call the parent constructor
+    }
+
+    // Override the sound method
+    @Override
+    public void sound() {
+        System.out.println(name + " barks.");
+    }
+}
+
+// Derived class (Cat) that inherits from Animal
+class Cat extends Animal {
+
+    // Constructor for Cat
+    public Cat(String name, int age) {
+        super(name, age); // Call the parent constructor
+    }
+
+    // Override the sound method
+    @Override
+    public void sound() {
+        System.out.println(name + " meows.");
+    }
+}
+
+// Main class to test the program
+public class Main {
+    public static void main(String[] args) {
+        // Create Dog object
+        Dog dog = new Dog("Buddy", 3);
+        dog.displayInfo(); // Call inherited method
+        dog.sound(); // Call overridden method
+
+        // Create Cat object
+        Cat cat = new Cat("Whiskers", 2);
+        cat.displayInfo(); // Call inherited method
+        cat.sound(); // Call overridden method
+    }
+}

@@ -1,0 +1,44 @@
+// Abstract class
+abstract class Animal {
+    // Abstract method (does not have a body)
+    public abstract void makeSound();
+
+    // Concrete method (has a body)
+    public void sleep() {
+        System.out.println("The animal is sleeping.");
+    }
+}
+
+// Subclass that extends the abstract class Animal
+class Dog extends Animal {
+    // Implementing the abstract method from Animal
+    @Override
+    public void makeSound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Another subclass that extends the abstract class Animal
+class Cat extends Animal {
+    // Implementing the abstract method from Animal
+    @Override
+    public void makeSound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+// Main class to test the program
+public class Main {
+    public static void main(String[] args) {
+        // Create objects of the subclasses
+        Animal myDog = new Dog();  // Animal reference, Dog object
+        Animal myCat = new Cat();  // Animal reference, Cat object
+
+        // Call the implemented methods
+        myDog.makeSound(); // Calls Dog's implementation of makeSound
+        myDog.sleep();     // Calls Animal's concrete method
+
+        myCat.makeSound(); // Calls Cat's implementation of makeSound
+        myCat.sleep();     // Calls Animal's concrete method
+    }
+}

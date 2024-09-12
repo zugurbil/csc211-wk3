@@ -1,0 +1,51 @@
+// Superclass (Parent class)
+class Animal {
+    // Method to be overridden by subclasses
+    public void makeSound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+// Subclass 1
+class Dog extends Animal {
+    // Overriding makeSound method
+    @Override
+    public void makeSound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+// Subclass 2
+class Cat extends Animal {
+    // Overriding makeSound method
+    @Override
+    public void makeSound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+// Subclass 3
+class Cow extends Animal {
+    // Overriding makeSound method
+    @Override
+    public void makeSound() {
+        System.out.println("The cow moos.");
+    }
+}
+
+// Main class to test polymorphism
+public class Main {
+    public static void main(String[] args) {
+        // Polymorphism in action
+        Animal myAnimal = new Animal();  // Animal reference, Animal object
+        Animal myDog = new Dog();        // Animal reference, Dog object
+        Animal myCat = new Cat();        // Animal reference, Cat object
+        Animal myCow = new Cow();        // Animal reference, Cow object
+
+        // Calling makeSound() on each object, demonstrating runtime polymorphism
+        myAnimal.makeSound();  // Calls the method in Animal
+        myDog.makeSound();     // Calls the overridden method in Dog
+        myCat.makeSound();     // Calls the overridden method in Cat
+        myCow.makeSound();     // Calls the overridden method in Cow
+    }
+}

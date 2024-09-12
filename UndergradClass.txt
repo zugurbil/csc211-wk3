@@ -1,0 +1,65 @@
+public class UnderGrad extends Student{
+	private String[] banksowed;
+	private int numofbanksowed;
+    public static final int MAX_BANK = 5;
+    
+    UnderGrad(){
+    	banksowed = new String [MAX_BANK];
+    	numofbanksowed = 0;    	
+    }
+    
+    
+    UnderGrad(String [] x){
+    	banksowed = new String [MAX_BANK];
+    	if (x.length > MAX_BANK) {
+    		System.out.println(" More banks then allowed ");
+    		System.exit(0);
+    	}
+     	numofbanksowed= x.length;
+     	for (int j=0; j<numofbanksowed; j++){
+	   	  this.banksowed[j] = x[j];
+	   	  }
+    }
+    public void DisplayBanksOwed(){
+    	for (int i=0; i<=numofbanksowed-1 ; i++){
+    		System.out.println(" \nLending Bank : " + banksowed[i]);   		
+    		}
+    }
+	
+    public void setBankowed(String bankname){
+    	
+    	if (numofbanksowed < MAX_BANK && numofbanksowed >= 0)
+    		{numofbanksowed++;
+    		 banksowed[numofbanksowed-1]= bankname;
+    		}
+    }  	
+  
+    public void removeBankowed(){
+    	if (numofbanksowed > 0)
+    		{ banksowed[numofbanksowed-1]= null;
+    		numofbanksowed--;
+    		}
+    }
+
+    public boolean exactlySameArrays(Object otherO){
+     boolean matches = false;
+   	 if (otherO instanceof UnderGrad) {
+        UnderGrad tempU = (UnderGrad) otherO;
+        System.out.println(" ********EXACTLY THE SAME ARRAY********* ");
+        if (!(this.banksowed.length==tempU.banksowed.length)) return false;
+        for(int i=0;i<numofbanksowed;i++){
+  	      matches=false;
+  	      for (int j=0; j<this.numofbanksowed; j++){
+  	    	  System.out.println("i = " + i + "j = " +  j);
+  	    	  if((this.banksowed[i]).equalsIgnoreCase(tempU.banksowed[j])) {
+ 				 System.out.println("SAME BANKS...i = " + i + " " + this.banksowed[i]+  " j = " + j+ " " +tempU.banksowed[j]);
+ 				  matches=true;
+ 			      }
+               }//inside loop
+  	      if (!(matches)) return false;
+  	    }//outside loop
+       }//instance of
+   	 return matches;
+   	}//class
+
+}//end of UnderGrad

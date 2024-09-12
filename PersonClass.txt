@@ -1,0 +1,95 @@
+public class Person {
+	private String fName;
+	private String lName;
+	private char gender;
+	private int age;  
+   
+	//default constructor
+	Person(){
+		fName="noname";
+		lName="noname";
+		gender='U';
+		age=0;
+	}
+	//overload constructor
+	
+	Person(String newfN, String newlN, char newG){
+		gender = newG;
+		fName=newfN;
+		lName=newlN;   
+		age=0;
+		}
+	Person(String newfN, String newlN, char newG, int newA){
+		gender = newG;
+		fName=newfN;
+		lName=newlN;   
+		age=newA;
+		}
+
+	Person(String newfN, String newlN){
+		this(newfN, newlN,'U',0);
+		}
+	
+	//setters
+	public void setFName(String newfN){
+	   fName = newfN;
+	   }
+	
+	public void setFNameLname(String newfN, String newlN){
+		   fName = newfN;
+		   lName = newlN;
+		   }
+	
+	public void setLName(String newlN){
+		   lName = newlN;
+		   }
+
+	public void setAge(int newA){
+		   age = newA;
+		   }
+
+	public void setGender(char gender){
+		   this.gender  = gender;
+		   }
+	public String getLName(){
+		   return lName;
+		   }
+
+	public String getFName(){
+		   return fName;
+		   }
+
+	public int getAge(){
+		   return age ;
+		   }
+
+	public char getGender(){
+		   return gender;
+		   }
+	
+	//Overriding Methods
+	@Override
+	public String toString(){
+	    
+		String s = "Person's Name: " + fName + "  LastName: " + lName + " Age: " +
+	                 age + "  Gender: " + gender;
+		return s ;
+		}
+
+	@Override
+	public boolean  equals(Object o){
+	    if (o instanceof Person) {
+	    	Person tempP = (Person) o;
+	  		if (this.fName.equalsIgnoreCase(tempP.fName) 
+			  &&  (this.lName.equalsIgnoreCase(tempP.lName))
+	          &&  (this.age==tempP.age)
+	          &&  (this.gender == tempP.gender)) return true;
+			}
+	   	return false;
+	}
+
+public void Speak(){
+	    	System.out.println("\n I am  person give me a BREAK!!!!");
+}
+ 
+}  //Person

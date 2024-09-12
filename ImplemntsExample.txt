@@ -1,0 +1,53 @@
+Explanation:
+Interface Animal: Defines a contract with an abstract method sound() that any implementing class must provide.
+
+Default Method: The sleep() method has a default implementation, so classes that implement Animal don’t have to override 
+it unless they want a custom behavior.
+
+Classes Dog and Cat: Both classes implement the Animal interface and provide their own implementation of the sound() method.
+
+
+// This is the interface
+public interface Animal {
+    // abstract method (no body)
+    void sound();
+    
+    // default method with a body (since Java 8)
+    default void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+// Dog class implements the Animal interface
+public class Dog implements Animal {
+    // providing implementation for sound() method
+    @Override
+    public void sound() {
+        System.out.println("The dog barks");
+    }
+}
+
+// Cat class implements the Animal interface
+public class Cat implements Animal {
+    // providing implementation for sound() method
+    @Override
+    public void sound() {
+        System.out.println("The cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create objects of Dog and Cat
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+        
+        // Call the implemented methods
+        dog.sound(); // Output: The dog barks
+        cat.sound(); // Output: The cat meows
+        
+        // Call the default method
+        dog.sleep(); // Output: Sleeping...
+        cat.sleep(); // Output: Sleeping...
+    }
+}

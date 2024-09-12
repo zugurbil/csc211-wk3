@@ -1,0 +1,58 @@
+public class Student extends Person{
+
+	  private String sid;
+	  private String major;
+	  private String favsubject;
+	  
+	  //Default constructor
+ Student(){
+    super();
+	sid="not assigned";
+	major= "undeclared";
+	favsubject="recess";
+		 }
+  
+  //Overload Constructor
+  Student(String newSid, String newMajor, String newFavsubj){
+	super();
+	this.sid=newSid;
+	this.major= newMajor;
+	this.favsubject=newFavsubj;
+	}
+  //Overload constructor
+ Student(String newSid, String newMajor, String newFavsubj,String newFname,String newLname,char newGender, int newAge){
+	super(newFname,newLname,newGender,newAge);
+	sid=newSid;
+	major= newMajor;
+	favsubject=newFavsubj;
+		  }
+
+//Overriding Methods
+	@Override
+	public String toString(){
+	    String s;
+		s = super.toString();
+		s = s+"\n\tStudend ID : " + sid + " Student Major : " + major + " Student Favorite subj: " + favsubject;
+		return s ;
+		}
+		
+	@Override
+	public boolean  equals(Object otherO){
+		boolean x = super.equals(otherO);
+		if (x && (otherO instanceof Student)) 
+	     {Student tempS = (Student) otherO;
+		 if (this.sid.equalsIgnoreCase(tempS.sid)
+			   &&  (this.major.equalsIgnoreCase(tempS.major))
+			   &&  (this.favsubject.equalsIgnoreCase(tempS.favsubject))) return true; 
+		   }  
+	
+		return false;
+   }  //endof equals
+	
+   public void Speak(){
+	 super.Speak();
+     System.out.println("\n  FINAL EXAMS are coming up I have to STUDY");
+}
+
+		
+}

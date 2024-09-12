@@ -1,0 +1,50 @@
+
+In Java, method overriding occurs when a subclass provides a specific implementation of a method that is already defined by its superclass. The subclass method must have the same method signature (name, parameters, and return type) as the method in the superclass.
+
+Here's a simple example demonstrating method overriding:
+
+Example:
+java
+Copy code
+// Superclass (Parent class)
+class Vehicle {
+    // Method to be overridden
+    public void startEngine() {
+        System.out.println("The vehicle's engine is starting.");
+    }
+}
+
+// Subclass (Child class)
+class Car extends Vehicle {
+    // Overriding the startEngine method
+    @Override
+    public void startEngine() {
+        System.out.println("The car's engine is starting with a roar.");
+    }
+}
+
+// Subclass (Child class)
+class Motorcycle extends Vehicle {
+    // Overriding the startEngine method
+    @Override
+    public void startEngine() {
+        System.out.println("The motorcycle's engine is starting with a vroom.");
+    }
+}
+
+// Main class to test overriding
+public class Main {
+    public static void main(String[] args) {
+        // Create Vehicle object
+        Vehicle genericVehicle = new Vehicle();
+        genericVehicle.startEngine(); // Calls Vehicle's version
+
+        // Create Car object
+        Vehicle car = new Car(); // Upcasting to Vehicle type
+        car.startEngine(); // Calls Car's overridden version
+
+        // Create Motorcycle object
+        Vehicle motorcycle = new Motorcycle(); // Upcasting to Vehicle type
+        motorcycle.startEngine(); // Calls Motorcycle's overridden version
+    }
+}

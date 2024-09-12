@@ -1,0 +1,128 @@
+ public class Person {
+	private String fName;
+	private String lName;
+	private char gender;
+	private int age;  
+   
+	//default constructor
+	Person(){
+		fName="noname";
+		lName="noname";
+		gender='U';
+		age=0;
+	}
+	//overload constructor
+	
+	Person(String newfN, String newlN, char newG){
+		gender = newG;
+		fName=newfN;
+		lName=newlN;   
+		age=0;
+		}
+	Person(String newfN, String newlN, char newG, int newA){
+		gender = newG;
+		fName=newfN;
+		lName=newlN;   
+		age=newA;
+		}
+
+	Person(String newfN, String newlN){
+		this(newfN, newlN,'U',0);
+		}
+	
+	//setters
+	public void setFName(String newfN){
+	   fName = newfN;
+	   }
+	
+	public void setFNameLname(String newfN, String newlN){
+		   fName = newfN;
+		   lName = newlN;
+		   }
+	
+	public void setLName(String newlN){
+		   lName = newlN;
+		   }
+
+	public void setAge(int newA){
+		   age = newA;
+		   }
+
+	public void setGender(char gender){
+		   this.gender  = gender;
+		   }
+	public String getLName(){
+		   return lName;
+		   }
+
+	public String getFName(){
+		   return fName;
+		   }
+
+	public int getAge(){
+		   return age ;
+		   }
+
+	public char getGender(){
+		   return gender;
+		   }
+	
+	//Overriding Methods
+	@Override
+	public String toString(){
+	    
+		String s = "Person's Name: " + fName + "  LastName: " + lName + " Age: " +
+	                 age + "  Gender: " + gender;
+		return s ;
+		}
+
+	@Override
+	public boolean  equals(Object o){
+	    if (o instanceof Person) {
+	    	Person tempP = (Person) o;
+	  		if (this.fName.equalsIgnoreCase(tempP.fName) 
+			  &&  (this.lName.equalsIgnoreCase(tempP.lName))
+	          &&  (this.age==tempP.age)
+	          &&  (this.gender == tempP.gender)) return true;
+			}
+	   	return false;
+	}
+
+       public void Speak(){
+	    	System.out.println("\n I am  person give me a BREAK!!!!");
+       }
+ 
+
+    // Main method to test returning objects from methods
+    public static void main(String[] args) {
+        Person p1 = new Person();
+	    p1.setFNameLname("Bill", "Lappan");
+        p1.setFNameLname("Bill", "Lappan");
+	    p1.setAge(52);
+	    p1.setGender('M');
+		
+	    Person p2 = new Person("John","Diangelo",'M', 23);
+	    Person p3 = new Person("Kelly","Turner",'F', 45);
+	    Person p4 = new Person("George","Powell",'M', 15);
+	    Person p5 = new Person("George","Powell",'M', 15);
+		
+	    System.out.println("P2 is: " +p2.getFName()+ " " + p2.getLName() + " Age: " +p2.getAge() + " Gender:  " + p2.getGender());
+	    System.out.println("P3 is: " +p3.getFName()+ " " + p3.getLName() + " Age: " +p3.getAge() + " Gender:  " + p3.getGender());
+	    System.out.println(p1);
+	    System.out.println(p2.toString());
+	    System.out.println(p3.toString());
+	    System.out.println(p4.toString());
+        if (p4.equals(p5)) 
+			System.out.println("p4 and p5 are equal persons");
+	    else
+			System.out.println("p4 and p5 are Not equal persons");
+		
+    	if (p4.equals(p1)) 
+			System.out.println("p4 and p1 are equal persons");
+	   else
+			System.out.println("p4 and p1 are Not equal persons");
+	    System.out.println("*********************end of printing the p1 to p4***************************");
+
+        
+    }//Main
+}//Person
