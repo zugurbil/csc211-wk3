@@ -1,0 +1,67 @@
+public class Faculty extends Employee {
+	private String department;
+	private int officeN;
+	private int maxH;
+	
+	Faculty(){
+	 super();
+	 department="unknown";
+	 officeN=0;
+	 maxH=0;
+	 }
+	
+	Faculty(String newD, int newOfn, int newMh){
+	  super();
+	  department=newD;
+	  officeN=newOfn;
+	  maxH=newMh;
+     }
+	
+	Faculty(String newD, int newOfn, int newMh,int newId, String newJobt, boolean newU,double newPay, String newFN,String newLN){
+		  super(newId, newJobt, newU,newPay,  newFN,newLN);
+		  department=newD;
+		  officeN=newOfn;
+		  maxH=newMh;
+	     }
+	
+	
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public int getOfficeN() {
+		return officeN;
+	}
+	public void setOfficeN(int officeN) {
+		this.officeN = officeN;
+	}
+	public int getMaxH() {
+		return maxH;
+	}
+	public void setMaxH(int maxH) {
+		this.maxH = maxH;
+	}
+	
+	@Override
+	public String toString(){
+	  String s;
+	  s = super.toString();
+	  s = s+"\n\tDepartment : " + department+ " Office No : " + officeN + " Max. of Teaching hours: " + maxH;
+	  return s ;
+	}
+		
+	@Override
+	public boolean  equals(Object otherO){
+		boolean x = super.equals(otherO);
+		if (x && (otherO instanceof Faculty)) {
+			 Faculty tempF = (Faculty) otherO;
+		     if ((this.department.equalsIgnoreCase(tempF.department))
+		       &&  (this.officeN == tempF.officeN)
+			   &&  (this.maxH==tempF.maxH)) return true; 
+		   }  
+	
+		return false;
+     }  //endof equals
+}
